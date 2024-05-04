@@ -1,81 +1,22 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { getCharacter } from "./starshipApiRequest";
-import {
-  selectComputerChoice,
-  selectStarship,
-  setMessage,
-} from "./redux/cardSlice";
-import { useState } from "react";
-import "./css/App.css";
+import { selectStarship } from "./redux/cardSlice";
 
 const Card = () => {
   const starship = useSelector(selectStarship);
-  const computerChoice = useSelector(selectComputerChoice);
-  const dispatch = useDispatch();
-
-  const playTurn = (userValue, computerValue) => {
-    if (Number(computerValue) === Number(userValue)) {
-      return dispatch(setMessage("It's a tie"));
-    } else if (Number(computerValue) > Number(userValue)) {
-      return dispatch(setMessage("Computer won"));
-    } else if (Number(computerChoice) < Number(userValue)) {
-      return dispatch(setMessage("You won"));
-    }
-  };
-
   return (
-    <div className="container">
+    <>
+    
       {starship && (
         <div>
-          <h1 className="name">Name: {starship.name}</h1>
-          <img
-            className="imageContainer"
-            src={`../src/assets/starships/${starship.imageUrlId}.jpg`}
-          />
-          <button
-            className="length"
-            onClick={() => {
-              if (computerChoice) {
-                playTurn(starship.length, computerChoice.length);
-              }
-            }}
-          >
-            <p>Length: {starship.length}</p>
-          </button>
-          <button
-            onClick={() => {
-              if (computerChoice) {
-                playTurn(
-                  starship.max_atmosphering_speed,
-                  computerChoice.max_atmosphering_speed
-                );
-              }
-            }}
-          >
-            <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
-          </button>
-          <button
-            onClick={() => {
-              if (computerChoice) {
-                playTurn(starship.crew, computerChoice.crew);
-              }
-            }}
-          >
-            <p>Crew: {starship.crew}</p>
-          </button>
-          <button
-            onClick={() => {
-              if (computerChoice) {
-                playTurn(starship.passengers, computerChoice.passengers);
-              }
-            }}
-          >
-            <p>Passengers: {starship.passengers}</p>
-          </button>
+          <h1>Name: {starship.name}</h1>
+          <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
+          <p>Length: {starship.length}</p>
+          <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
+          <p>Crew: {starship.crew}</p>
+          <p>Passengers: {starship.passengers}</p>
         </div>
       )}
-
-      {message && <p>{message}</p>}
     </>
   );
 };
