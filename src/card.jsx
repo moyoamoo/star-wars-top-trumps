@@ -9,12 +9,16 @@ const Card = () => {
   const starship = useSelector(selectStarship);
   const computerChoice = useSelector(selectComputerChoice);
   return (
-    <>
+    <div className="container">
       {starship && (
-        <div className="header">
+        <div>
           <h1 className="name">Name: {starship.name}</h1>
-          <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
+          <img
+            className="imageContainer"
+            src={`../src/assets/starships/${starship.imageUrlId}.jpg`}
+          />
           <button
+            className="length"
             onClick={() => {
               if (computerChoice) {
                 if (Number(computerChoice.length) === Number(starship.length)) {
@@ -43,7 +47,7 @@ const Card = () => {
       )}
 
       {message && <p>{message}</p>}
-    </>
+    </div>
   );
 };
 
