@@ -6,13 +6,14 @@ const initialState = {
   win: 0,
   lose: 0,
   draw: 0,
+  computerChoice: {},
 };
 export const cardSlice = createSlice({
   name: "counter",
   initialState,
   message: "",
   starship: {},
-  computerChoice: {},
+ 
 
   reducers: {
     setStarship: (state, { payload }) => {

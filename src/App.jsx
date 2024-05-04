@@ -10,16 +10,20 @@ import Message from "./Message";
 import Header from "./Header";
 import Footer from "./Footer";
 import Score from "./Score";
+import { selectTurnPlayed } from "./redux/cardSlice";
+import ComputerCard from "./ComputerCard";
 
 export default function App() {
+  const turnPlayed = useSelector(selectTurnPlayed);
   return (
     <>
       <Header />
-      <Score/>
+      <Score />
       <PlayTurn />
       <Card />
       <Message />
-      <Footer/>
+      {turnPlayed && <ComputerCard />}
+      <Footer />
     </>
   );
 }
