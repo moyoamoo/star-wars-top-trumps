@@ -1,9 +1,25 @@
-import { useSelector } from "react-redux";
-import { selectMessage } from "./redux/cardSlice";
+import { getCharacter, getComputerChoice } from "./starshipApiRequest";
+import "./css/App.css";
+import { useDispatch } from "react-redux";
+import { setMessage, setTurnPlayed } from "./redux/cardSlice";
 
-const Message = () => {
-  const message = useSelector(selectMessage);
-  return <>{message && <p>{message}</p>}</>;
+const PlayTurn = () => {
+  const dispatch = useDispatch();
+  return (
+    <div className="test">
+      <button
+        className="startButton"
+        onClick={() => {
+          getCharacter();
+          getComputerChoice();
+          dispatch(setMessage(""));
+          dispatch(setTurnPlayed(false));
+        }}
+      >
+        Play Turn
+      </button>
+    </div>
+  );
 };
 
-export default Message;
+export default PlayTurn;

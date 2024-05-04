@@ -1,6 +1,7 @@
-import { useDispatch } from "react-redux";
 import { getCharacter, getComputerChoice } from "./starshipApiRequest";
-import { setMessage } from "./redux/cardSlice";
+import "./css/App.css";
+import { useDispatch } from "react-redux";
+import { setMessage, setTurnPlayed } from "./redux/cardSlice";
 
 const PlayTurn = () => {
   const dispatch = useDispatch();
@@ -10,8 +11,9 @@ const PlayTurn = () => {
         className="startButton"
         onClick={() => {
           getCharacter();
-          getComputerChoice()
-          dispatch(setMessage(""))
+          getComputerChoice();
+          dispatch(setMessage(""));
+          dispatch(setTurnPlayed(false));
         }}
       >
         Play Turn
