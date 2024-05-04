@@ -16,6 +16,7 @@ export const getCharacter = async () => {
     );
 
     if (data) {
+      data.imageUrlId = starshipIds[starshipIdRandom];
       store.dispatch(setStarship(data));
     }
     console.log(data);
