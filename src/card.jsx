@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { getCharacter } from "./starshipApiRequest";
 import { selectComputerChoice, selectStarship } from "./redux/cardSlice";
 import { useState } from "react";
+import "./css/App.css";
 
 const Card = () => {
   const [message, setMessage] = useState(undefined);
@@ -10,8 +11,8 @@ const Card = () => {
   return (
     <>
       {starship && (
-        <div>
-          <h1>Name: {starship.name}</h1>
+        <div className="header">
+          <h1 className="name">Name: {starship.name}</h1>
           <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
           <button
             onClick={() => {
