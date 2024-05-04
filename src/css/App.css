@@ -5,7 +5,23 @@
   text-align: center;
 }
 
-.row {
+.test {
+  background-color: red;
+}
+
+.startButton {
+  background-color: red;
+}
+
+.header {
+  background-color: blue;
+}
+
+.name {
+  background-color: green;
+}
+
+/* .row {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,4 +74,4 @@
 
 .button:active {
   background-color: rgba(112, 76, 182, 0.2);
-}
+} */
