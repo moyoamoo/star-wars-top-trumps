@@ -9,6 +9,7 @@ import {
   setDraw,
   setLose,
   setWin,
+  setTurn,
 } from "./redux/cardSlice";
 import { useState } from "react";
 import "./css/App.css";
@@ -24,18 +25,21 @@ const Card = () => {
       dispatch(setMessage("It's a tie"));
       dispatch(setDraw(1));
       dispatch(setTurnPlayed(true));
+      dispatch(setTurn(1))
       return;
     } else if (Number(computerChoice.length) > Number(starship.length)) {
       console.log(computerChoice.length);
       dispatch(setMessage("Computer won"));
       dispatch(setTurnPlayed(true));
       dispatch(setLose(1));
+      dispatch(setTurn(1))
       return;
     } else if (Number(computerChoice.length) < Number(starship.length)) {
       console.log(computerChoice.length);
       dispatch(setMessage("You won"));
       dispatch(setTurnPlayed(true));
       dispatch(setWin(1));
+      dispatch(setTurn(1))
       return;
     }
   };

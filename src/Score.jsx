@@ -8,9 +8,9 @@ const Score = () => {
   return (
     <>
       <div>
-        <p>Win : {win}</p>
-        <p>Lose: {lose}</p>
-        <p>Draw: {draw}</p>
+        <p>Win:{win}</p>
+        <p>Lose:{lose}</p>
+        <p>Draw:{draw}</p>
       </div>
     </>
   );

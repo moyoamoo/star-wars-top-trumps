@@ -6,6 +6,7 @@ const initialState = {
   win: 0,
   lose: 0,
   draw: 0,
+  turn: 0, 
   computerChoice: {},
 };
 export const cardSlice = createSlice({
@@ -13,7 +14,6 @@ export const cardSlice = createSlice({
   initialState,
   message: "",
   starship: {},
- 
 
   reducers: {
     setStarship: (state, { payload }) => {
@@ -44,6 +44,10 @@ export const cardSlice = createSlice({
     setLose: (state, { payload }) => {
       state.lose += payload;
     },
+
+    setTurn: (state, { payload }) => {
+      state.turn += payload;
+    },
   },
 });
 
@@ -55,6 +59,7 @@ export const {
   setDraw,
   setLose,
   setWin,
+  setTurn,
 } = cardSlice.actions;
 
 export const selectStarship = (state) => state.card.starship;
@@ -64,5 +69,6 @@ export const selectTurnPlayed = (state) => state.card.turnPlayed;
 export const selectWin = (state) => state.card.win;
 export const selectLose = (state) => state.card.lose;
 export const selectDraw = (state) => state.card.draw;
+export const selectTurn = (state) => state.card.turn;
 
 export default cardSlice.reducer;
