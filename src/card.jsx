@@ -51,68 +51,70 @@ const Card = () => {
             <h1 className="name">Name: {starship.name}</h1>
             <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
           </div>
-          <button className="buttons"
-            disabled={turnPlayed ? true : false}
-            onClick={() => {
-              if (computerChoice) {
-                if (starship.length === "unknown") {
-                  starship.length === 0;
-                }
-                playTurn(computerChoice.length, starship.length);
-              }
-            }}
-          >
-            <p>Length: {starship.length}</p>
-          </button>
-          <button
-            disabled={turnPlayed ? true : false}
-            onClick={() => {
-              if (computerChoice) {
-                if (
-                  starship.max_atmosphering_speed === "unknown" ||
-                  starship.max_atmosphering_speed === "n/a"
-                ) {
-                  starship.length === 0;
-                }
-                playTurn(
-                  computerChoice.max_atmosphering_speed,
-                  starship.max_atmosphering_speed
-                );
-              }
-            }}
-          >
-            <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
-          </button>
-          <button
-            disabled={turnPlayed ? true : false}
-            onClick={() => {
-              if (computerChoice) {
-                if (starship.crew === "unknown" || starship.crew === "n/a") {
-                  starship.crew === 0;
-                }
-                playTurn(computerChoice.crew, starship.crew);
-              }
-            }}
-          >
-            {" "}
-            <p>Crew: {starship.crew}</p>
-          </button>
-          <button
-            disabled={turnPlayed ? true : false}
-            onClick={() => {
-              if (computerChoice) {
-                if (
-                  starship.passengers === "unknown" ||
-                  starship.passengers === "n/a"
-                ) {
-                  starship.passengers === 0;
-                }
-                playTurn(computerChoice.passengers, starship.passengers);
-              }
-            }}
-          >
-            <p>Passengers: {starship.passengers}</p>
-          </button>
+         <div className="buttonContainer">
+              <button className="buttons"
+                disabled={turnPlayed ? true : false}
+                onClick={() => {
+                  if (computerChoice) {
+                    if (starship.length === "unknown") {
+                      starship.length === 0;
+                    }
+                    playTurn(computerChoice.length, starship.length);
+                  }
+                }}
+              >
+                <p>Length: {starship.length}</p>
+              </button>
+              <button  className="buttons"
+                disabled={turnPlayed ? true : false}
+                onClick={() => {
+                  if (computerChoice) {
+                    if (
+                      starship.max_atmosphering_speed === "unknown" ||
+                      starship.max_atmosphering_speed === "n/a"
+                    ) {
+                      starship.length === 0;
+                    }
+                    playTurn(
+                      computerChoice.max_atmosphering_speed,
+                      starship.max_atmosphering_speed
+                    );
+                  }
+                }}
+              >
+                <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
+              </button>
+              <button  className="buttons"
+                disabled={turnPlayed ? true : false}
+                onClick={() => {
+                  if (computerChoice) {
+                    if (starship.crew === "unknown" || starship.crew === "n/a") {
+                      starship.crew === 0;
+                    }
+                    playTurn(computerChoice.crew, starship.crew);
+                  }
+                }}
+              >
+                {" "}
+                <p>Crew: {starship.crew}</p>
+              </button>
+              <button  className="buttons"
+                disabled={turnPlayed ? true : false}
+                onClick={() => {
+                  if (computerChoice) {
+                    if (
+                      starship.passengers === "unknown" ||
+                      starship.passengers === "n/a"
+                    ) {
+                      starship.passengers === 0;
+                    }
+                    playTurn(computerChoice.passengers, starship.passengers);
+                  }
+                }}
+              >
+                <p>Passengers: {starship.passengers}</p>
+              </button>
+         </div>
         </div>
       )}
     </>

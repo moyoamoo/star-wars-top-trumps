@@ -9,21 +9,23 @@ const ComputerCard = () => {
         <h1 className="name">Name: {computerChoice.name}</h1>
         <img src={`../src/assets/starships/${computerChoice.imageUrlId}.jpg`} />
       </div>
-      <button>
+      <div className="buttonContainer">
+          <button  className="buttons">
+        
+            <p>Length: {computerChoice.length}</p>
+          </button>
+          <button  className="buttons">
+            <p>Max Atmosphering Speed: {computerChoice.max_atmosphering_speed}</p>
+          </button>
+          <button  className="buttons">
     
-        <p>Length: {computerChoice.length}</p>
-      </button>
-      <button>
-        <p>Max Atmosphering Speed: {computerChoice.max_atmosphering_speed}</p>
-      </button>
-      <button>
-
-        <p>Crew: {computerChoice.crew}</p>
-      </button>
-      <button>
-     
-        <p>Passengers: {computerChoice.passengers}</p>
-      </button>
+            <p>Crew: {computerChoice.crew}</p>
+          </button>
+          <button  className="buttons">
+         
+            <p>Passengers: {computerChoice.passengers}</p>
+          </button>
+      </div>
     </div>
   );
 };

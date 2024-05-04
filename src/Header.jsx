@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <div>
       <h1 className="titleHeader"> Starwars Top Trump</h1>
-      <button>Info</button>
+      {/* <button>Info</button> */}
       {/* <PopupInfo trigger={false}>
         <Info />
       </PopupInfo> */}
