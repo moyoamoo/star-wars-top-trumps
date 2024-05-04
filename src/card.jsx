@@ -5,7 +5,7 @@ import {
   selectStarship,
   setTurnPlayed,
   selectTurnPlayed,
-  setMessage, 
+  setMessage,
   setDraw,
   setLose,
   setWin,
@@ -25,21 +25,21 @@ const Card = () => {
       dispatch(setMessage("It's a tie"));
       dispatch(setDraw(1));
       dispatch(setTurnPlayed(true));
-      dispatch(setTurn(1))
+      dispatch(setTurn(1));
       return;
     } else if (Number(computerChoice.length) > Number(starship.length)) {
       console.log(computerChoice.length);
       dispatch(setMessage("Computer won"));
       dispatch(setTurnPlayed(true));
       dispatch(setLose(1));
-      dispatch(setTurn(1))
+      dispatch(setTurn(1));
       return;
     } else if (Number(computerChoice.length) < Number(starship.length)) {
       console.log(computerChoice.length);
       dispatch(setMessage("You won"));
       dispatch(setTurnPlayed(true));
       dispatch(setWin(1));
-      dispatch(setTurn(1))
+      dispatch(setTurn(1));
       return;
     }
   };
@@ -53,6 +53,9 @@ const Card = () => {
             disabled={turnPlayed ? true : false}
             onClick={() => {
               if (computerChoice) {
+                if (starship.length === "unknown") {
+                  starship.length === 0;
+                }
                 playTurn(computerChoice.length, starship.length);
               }
             }}
@@ -63,6 +66,12 @@ const Card = () => {
             disabled={turnPlayed ? true : false}
             onClick={() => {
               if (computerChoice) {
+                if (
+                  starship.max_atmosphering_speed === "unknown" ||
+                  starship.max_atmosphering_speed === "n/a"
+                ) {
+                  starship.length === 0;
+                }
                 playTurn(
                   computerChoice.max_atmosphering_speed,
                   starship.max_atmosphering_speed
@@ -76,6 +85,9 @@ const Card = () => {
             disabled={turnPlayed ? true : false}
             onClick={() => {
               if (computerChoice) {
+                if (starship.crew === "unknown" || starship.crew === "n/a") {
+                  starship.crew === 0;
+                }
                 playTurn(computerChoice.crew, starship.crew);
               }
             }}
@@ -87,6 +99,12 @@ const Card = () => {
             disabled={turnPlayed ? true : false}
             onClick={() => {
               if (computerChoice) {
+                if (
+                  starship.passengers === "unknown" ||
+                  starship.passengers === "n/a"
+                ) {
+                  starship.passengers === 0;
+                }
                 playTurn(computerChoice.passengers, starship.passengers);
               }
             }}
