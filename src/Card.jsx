@@ -6,16 +6,7 @@ const Card = () => {
   const starship = useSelector(selectStarship);
   return (
     <>
-      <div>
-        <button
-          onClick={() => {
-            getCharacter();
-          }}
-        >
-          Get Character
-        </button>
-      </div>
-
+    
       {starship && (
         <div>
           <h1>Name: {starship.name}</h1>
