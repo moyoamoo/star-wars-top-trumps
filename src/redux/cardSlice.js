@@ -16,6 +16,6 @@ export const cardSlice = createSlice({
 
 export const { setStarship } = cardSlice.actions;
 
-export const selectCount = (state) => state.counter.value;
+export const selectStarship = (state) => state.card.starship;
 
 export default cardSlice.reducer;
