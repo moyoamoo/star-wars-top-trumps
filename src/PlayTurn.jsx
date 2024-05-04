@@ -1,4 +1,4 @@
-import { getCharacter } from "./starshipApiRequest";
+import { getCharacter, getComputerChoice } from "./starshipApiRequest";
 
 const PlayTurn = () => {
   return (
@@ -6,6 +6,7 @@ const PlayTurn = () => {
       <button
         onClick={() => {
           getCharacter();
+          getComputerChoice()
         }}
       >
         Play Turn
