@@ -1,14 +1,17 @@
+import { useDispatch } from "react-redux";
 import { getCharacter, getComputerChoice } from "./starshipApiRequest";
-import "./css/App.css";
+import { setMessage } from "./redux/cardSlice";
 
 const PlayTurn = () => {
+  const dispatch = useDispatch();
   return (
     <div className="test">
       <button
         className="startButton"
         onClick={() => {
           getCharacter();
-          getComputerChoice();
+          getComputerChoice()
+          dispatch(setMessage(""))
         }}
       >
         Play Turn
