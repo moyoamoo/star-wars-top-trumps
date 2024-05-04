@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { getCharacter } from "./starshipApiRequest";
 import { selectComputerChoice, selectStarship } from "./redux/cardSlice";
 
 const Card = () => {
@@ -8,31 +9,30 @@ const Card = () => {
     <>
       {starship && (
         <div>
-          <h2>Name: {starship.name}</h2>
+          <h1>Name: {starship.name}</h1>
           <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
           <button
             onClick={() => {
               if (computerChoice) {
-                if (Number(computerChoice.crew) === Number(starship.crew)) {
-                  console.log("It's a tie");
+                if (Number(computerChoice.length) === Number(starship.length)) {
+                  return console.log("It's a tie");
                 } else if (
-                  Number(computerChoice.crew) < Number(starship.crew)
+                  Number(computerChoice.length) > Number(starship.length)
                 ) {
-                  console.log("Computer has won");
+                  return console.log("Computer won");
                 } else if (
-                  Number(computerChoice.crew) < Number(starship.crew)
+                  Number(computerChoice.length) < Number(starship.length)
                 ) {
-                  console.log("You have won");
+                  return console.log("You won");
                 }
               }
             }}
           >
-        
-            <p>Crew {starship.crew}</p>
+            <p>Length: {starship.length}</p>
           </button>
-          <p>Max Atomsphering Speed: {starship.max_atmosphering_speed}</p>
-          <p>Passengers: {starship.pasengers}</p>
-          <p>Max Atomsphering Speed: {starship.max_atmosphering_speed}</p>
+          <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
+          <p>Crew: {starship.crew}</p>
+          <p>Passengers: {starship.passengers}</p>
         </div>
       )}
     </>
