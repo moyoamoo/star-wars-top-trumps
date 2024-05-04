@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import { getCharacter } from "./starshipApiRequest";
 import { selectComputerChoice, selectStarship } from "./redux/cardSlice";
+import { useState } from "react";
 
 const Card = () => {
+  const [message, setMessage] = useState(undefined);
   const starship = useSelector(selectStarship);
   const computerChoice = useSelector(selectComputerChoice);
   return (
@@ -15,15 +17,18 @@ const Card = () => {
             onClick={() => {
               if (computerChoice) {
                 if (Number(computerChoice.length) === Number(starship.length)) {
-                  return console.log("It's a tie");
+                  console.log(computerChoice.length);
+                  setMessage("It's a tie");
                 } else if (
                   Number(computerChoice.length) > Number(starship.length)
                 ) {
-                  return console.log("Computer won");
+                  console.log(computerChoice.length);
+                  setMessage("Computer won");
                 } else if (
                   Number(computerChoice.length) < Number(starship.length)
                 ) {
-                  return console.log("You won");
+                  console.log(computerChoice.length);
+                  setMessage("You won");
                 }
               }
             }}
@@ -35,6 +40,8 @@ const Card = () => {
           <p>Passengers: {starship.passengers}</p>
         </div>
       )}
+
+      {message && <p>{message}</p>}
     </>
   );
 };
