@@ -68,6 +68,10 @@ button:focus-visible {
   }
 }
 
+.cardsContainer {
+  display: flex;
+  gap: 10rem;
+}
 /* @charset "UTF-8"; */
 
 @font-face {

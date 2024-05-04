@@ -1,5 +1,5 @@
 import React from "react";
-import PopupInfo from "./PopupInfo";
+// import PopupInfo from "./PopupInfo";
 import Info from "./Info";
 
 const Header = () => {
@@ -7,9 +7,9 @@ const Header = () => {
     <div>
       <h1 className="titleHeader"> Starwars Top Trump</h1>
       <button>Info</button>
-      <PopupInfo trigger={false}>
+      {/* <PopupInfo trigger={false}>
         <Info />
-      </PopupInfo>
+      </PopupInfo> */}
     </div>
   );
 };

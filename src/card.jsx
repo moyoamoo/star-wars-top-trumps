@@ -46,10 +46,12 @@ const Card = () => {
   return (
     <>
       {starship && (
-        <div className="header">
-          <h1 className="name">Name: {starship.name}</h1>
-          <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
-          <button
+        <div className="fullCard">
+          <div className="cardTop">
+            <h1 className="name">Name: {starship.name}</h1>
+            <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
+          </div>
+          <button className="buttons"
             disabled={turnPlayed ? true : false}
             onClick={() => {
               if (computerChoice) {

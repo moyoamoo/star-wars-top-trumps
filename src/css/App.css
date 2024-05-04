@@ -75,3 +75,34 @@
 .button:active {
   background-color: rgba(112, 76, 182, 0.2);
 } */
+
+.fullCard {
+  background-color: #ffee58;
+  opacity: 0.5;
+  border: 2px;
+  border-color: white;
+  width: 40%;
+  border-radius: 2rem;
+}
+
+.fullCard img {
+  width: 200px;
+  border-radius: 2rem;
+}
+
+.message {
+  font-size: 5rem;
+  color: #ffee58;
+}
+
+.buttons {
+  background-color: rgb(56, 49, 50);
+  color: rgba(255, 255, 255, 0.87);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.header {
+  color: #ffffffde;
+  width: 850px;
+  font-size: 10px;
+}

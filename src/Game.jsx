@@ -12,9 +12,10 @@ const Game = () => {
     <>
       <Score />
       <PlayTurn />
-      <Card />
+
+      <Message />
       <div class="cardsContainer">
-        <Message />
+        <Card />
         {turnPlayed && <ComputerCard />}
       </div>
     </>
