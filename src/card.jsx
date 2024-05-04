@@ -3,15 +3,14 @@ import { getCharacter } from "./starshipApiRequest";
 import {
   selectComputerChoice,
   selectStarship,
-  selectMessage,
   setMessage,
 } from "./redux/cardSlice";
 import { useState } from "react";
+import "./css/App.css";
 
 const Card = () => {
   const starship = useSelector(selectStarship);
   const computerChoice = useSelector(selectComputerChoice);
-  const message = useSelector(selectMessage);
   const dispatch = useDispatch();
 
   const playTurn = (userValue, computerValue) => {
@@ -23,11 +22,12 @@ const Card = () => {
       return dispatch(setMessage("You won"));
     }
   };
+
   return (
     <>
       {starship && (
-        <div>
-          <h1>Name: {starship.name}</h1>
+        <div className="header">
+          <h1 className="name">Name: {starship.name}</h1>
           <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
           <button
             onClick={() => {
@@ -70,8 +70,6 @@ const Card = () => {
           </button>
         </div>
       )}
-
-      {message && <p>{message}</p>}
     </>
   );
 };

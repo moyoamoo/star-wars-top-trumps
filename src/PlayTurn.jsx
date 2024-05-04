@@ -5,17 +5,18 @@ import { setMessage } from "./redux/cardSlice";
 const PlayTurn = () => {
   const dispatch = useDispatch();
   return (
-    <>
+    <div className="test">
       <button
+        className="startButton"
         onClick={() => {
           getCharacter();
-          getComputerChoice();
-          dispatch(setMessage(""));
+          getComputerChoice()
+          dispatch(setMessage(""))
         }}
       >
         Play Turn
       </button>
-    </>
+    </div>
   );
 };
 
