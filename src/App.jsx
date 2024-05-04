@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  selectCount,
-} from "./redux/counterSlice";
+
 import "./css/App.css";
 import { getCharacter } from "./starshipApiRequest";
 
