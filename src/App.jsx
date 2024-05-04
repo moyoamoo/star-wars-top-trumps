@@ -5,13 +5,15 @@ import "./css/App.css";
 import PlayTurn from "./PlayTurn";
 import "./css/App.css";
 import "./css/index.css";
-import Card from "./card";
+import Card from "./Card";
+import Message from "./Message";
 
 export default function App() {
   return (
     <>
       <PlayTurn />
       <Card />
+      <Message/>
     </>
   );
 }

@@ -1,13 +1,38 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getCharacter } from "./starshipApiRequest";
-import { selectComputerChoice, selectStarship } from "./redux/cardSlice";
+import {
+  selectComputerChoice,
+  selectStarship,
+  setTurnPlayed,
+  selectTurnPlayed, 
+  setMessage
+} from "./redux/cardSlice";
 import { useState } from "react";
 import "./css/App.css";
 
 const Card = () => {
-  const [message, setMessage] = useState(undefined);
+  const dispatch = useDispatch();
   const starship = useSelector(selectStarship);
   const computerChoice = useSelector(selectComputerChoice);
+  const turnPlayed = useSelector(selectTurnPlayed);
+
+  const playTurn = (computerValue, userValue) => {
+    if (Number(computerValue) === Number(userValue)) {
+      dispatch(setMessage("It's a tie"));
+      dispatch(setTurnPlayed(true));
+      return;
+    } else if (Number(computerChoice.length) > Number(starship.length)) {
+      console.log(computerChoice.length);
+      dispatch(setMessage("Computer won"));
+      dispatch(setTurnPlayed(true));
+      return;
+    } else if (Number(computerChoice.length) < Number(starship.length)) {
+      console.log(computerChoice.length);
+      dispatch(setMessage("You won"));
+      dispatch(setTurnPlayed(true));
+      return;
+    }
+  };
   return (
     <>
       {starship && (
@@ -15,34 +40,53 @@ const Card = () => {
           <h1 className="name">Name: {starship.name}</h1>
           <img src={`../src/assets/starships/${starship.imageUrlId}.jpg`} />
           <button
+            disabled={turnPlayed ? true : false}
             onClick={() => {
               if (computerChoice) {
-                if (Number(computerChoice.length) === Number(starship.length)) {
-                  console.log(computerChoice.length);
-                  setMessage("It's a tie");
-                } else if (
-                  Number(computerChoice.length) > Number(starship.length)
-                ) {
-                  console.log(computerChoice.length);
-                  setMessage("Computer won");
-                } else if (
-                  Number(computerChoice.length) < Number(starship.length)
-                ) {
-                  console.log(computerChoice.length);
-                  setMessage("You won");
-                }
+                playTurn(computerChoice.length, starship.length);
               }
             }}
           >
             <p>Length: {starship.length}</p>
           </button>
-          <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
-          <p>Crew: {starship.crew}</p>
-          <p>Passengers: {starship.passengers}</p>
+          <button
+            disabled={turnPlayed ? true : false}
+            onClick={() => {
+              if (computerChoice) {
+                playTurn(
+                  computerChoice.max_atmosphering_speed,
+                  starship.max_atmosphering_speed
+                );
+              }
+            }}
+          >
+            <p>Max Atmosphering Speed: {starship.max_atmosphering_speed}</p>
+          </button>
+          <button
+            disabled={turnPlayed ? true : false}
+            onClick={() => {
+              if (computerChoice) {
+                playTurn(computerChoice.crew, starship.crew);
+              }
+            }}
+          >
+            {" "}
+            <p>Crew: {starship.crew}</p>
+          </button>
+          <button
+            disabled={turnPlayed ? true : false}
+            onClick={() => {
+              if (computerChoice) {
+                playTurn(computerChoice.passengers, starship.passengers);
+              }
+            }}
+          >
+        
+            <p>Passengers: {starship.passengers}</p>
+          </button>
         </div>
       )}
 
-      {message && <p>{message}</p>}
     </>
   );
 };
