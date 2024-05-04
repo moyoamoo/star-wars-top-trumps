@@ -16,7 +16,7 @@ export default function App() {
     <>
       <Header />
 
-      {turn === 10 ? <EndGame /> : <Game />}
+      {turn === 3? <EndGame /> : <Game />}
 
       <Footer />
     </>
